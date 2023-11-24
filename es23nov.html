@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>javascript</title>
+</head>
+<body>
+
+    
+    <script>
+        alert("Welcome in the world of gamers! \n\nProdotti disponibili: PS5,\n\n Controller Turtle Beach - Recon White (Wired),\n\n Webcam Trust - GXT 1160 FULL HD,\n\n Headset SteelSeries - Arctis 9X,\n\n Volante + Pedaliera Lamborghini,\n\n Videogioco The lost of us,\n\n Uncharted,\n\n Horizon \n\nPremi OK per continuare.");
+        
+        let operazione
+        let ListaElementi = [];
+        
+        function AggiungiElemento(lista,a){ lista.push(a); return lista; }
+        
+        function EliminaElemento(lista,a){ 
+
+            for (let i = 0; i < lista.length; i++) {
+                if(lista[i]==a)
+                {
+                    lista.splice(i, 1); 
+                    return lista;
+                } }
+            
+             }
+
+        function ModificaElemento(lista,elementoDaSostituire,b) {
+            for (let i = 0; i < lista.length; i++) {
+                if(lista[i]==elementoDaSostituire){lista[i]=b}   
+            }
+            return lista;
+        }
+
+        function AzzeraLIsta(lista){ lista = []; return lista;}
+        
+       
+        
+        
+        
+        while(operazione!=0){    
+            
+            operazione = parseInt(prompt("Seleziona l'operazione da effettuare alla lista:\n\n 1.Aggiungi elemento\n\n 2.Elimina elemento\n\n 3.Ordina in ordine alfabetico\n\n 4.Modifica un elemento\n\n 5.Elimina intera lista\n\n 6.Visualizza lista\n\n 0.CHIUDI"))
+            
+            switch(operazione){
+                
+                case 1: 
+                let nuovoElemento=(prompt("Che elemento vuoi aggiungere?"))
+                ListaElementi = AggiungiElemento(ListaElementi,nuovoElemento)
+                alert("Hai aggiunto l'elemento " + nuovoElemento)
+                break;
+                
+                case 2: 
+                let elementoEliminato=(prompt("Che elemento vuoi eliminare?"))
+                ListaElementi = EliminaElemento(ListaElementi,elementoEliminato)
+                alert("Hai eliminato l'elemento " + elementoEliminato)
+                break;
+                
+                case 3: 
+                ListaElementi.sort();
+                alert("Lista ordinata in ordine alfabetico.")
+                break;
+                
+                case 4: 
+                let elementoDaModificare=(prompt("Che elemento vuoi modificare?"))
+                let elementoSostituzione=(prompt("Inserisci l'elemento da assegnare:"))
+                ListaElementi = ModificaElemento(ListaElementi,elementoDaModificare,elementoSostituzione)
+                alert("LISTA MODIFICATA. Hai sostituito l'elemento " + elementoDaModificare + " con l'elemento " + elementoSostituzione)
+                break;
+                
+                case 5: 
+                ListaElementi = AzzeraLIsta(ListaElementi)
+                alert("Elementi della lista eliminati.")
+                break;
+                
+                case 6: 
+                alert("La lista creata è: " + ListaElementi)
+                break;
+            }
+            
+        }
+        
+    </script>
+
+
+    
+</body>
+</html>
